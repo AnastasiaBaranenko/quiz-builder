@@ -1,0 +1,30 @@
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 24px;
+  color: blueviolet;
+}
+
+.desc {
+  color: rgb(63, 14, 107);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.btn {
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  background: rgb(119, 51, 179);
+}

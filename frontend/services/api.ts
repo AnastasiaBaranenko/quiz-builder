@@ -20,6 +20,7 @@ export interface Quiz {
   id: string;
   title: string;
   description: string;
+  questions?: Question[];
   _count?: {
     questions: number;
   };

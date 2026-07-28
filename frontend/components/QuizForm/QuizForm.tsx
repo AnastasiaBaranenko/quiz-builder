@@ -1,6 +1,6 @@
 'use client';
 
-import { useForm, useFieldArray } from 'react-hook-form';
+import { useForm, useWatch, useFieldArray } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -52,7 +52,6 @@ export default function QuizForm() {
     register,
     control,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<QuizFormData>({
     resolver: zodResolver(quizSchema),
@@ -74,6 +73,11 @@ export default function QuizForm() {
     name: 'questions',
   });
 
+  const watchedQuestions = useWatch({
+    control,
+    name: 'questions',
+  });
+
   const onSubmit = async (data: QuizFormData) => {
     try {
       const formattedData = {
@@ -90,7 +94,6 @@ export default function QuizForm() {
     }
   };
 
-  const watchedQuestions = watch('questions');
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <h2 className={styles.title}>Create your quiz</h2>
